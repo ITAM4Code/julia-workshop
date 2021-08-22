@@ -10,10 +10,20 @@
 - Plotting
 - DataFrames
 
+Tomando como base cursos y guías ofrecidas como learning resources 
+oficiales & de otros lados:
+- JuliaAcademy - [Introduction to Julia](https://github.com/JuliaAcademy/Introduction-to-Julia)
+- JuliaAcademy - [Julia for Data Science](https://github.com/JuliaAcademy/DataScience)
+- Jorge Rotter - [Python para ciencias aplicadas](https://github.com/jarotter/python_ciencias_aplicadas)
+
 ## Introducción
 Introducción corta pensada principalmente para personas que ya saben 
 programar. Quizás enfoque en mostrar las diferencias entre Matlab, 
 Python y Julia [(ejemplo)](https://cheatsheets.quantecon.org/).
+
+Un buen punto de partida: El curso de [python 
+científico](https://github.com/jarotter/python_ciencias_aplicadas/blob/master/notebooks/1-intro.md) 
+impartido por Jorge Rotter
 
 - Intro
 	- Filosofía Open Source y porqué Julia
@@ -42,11 +52,15 @@ Python y Julia [(ejemplo)](https://cheatsheets.quantecon.org/).
 ## Segunda sesión: Bases del cómputo científico
 
 - Álgebra Lineal
+Buen punto de partida: Curso de [Julia 
+Academy](https://github.com/JuliaAcademy/DataScience/blob/main/02.%20Linear%20Algebra.ipynb) 
+impartido Dr. Huda Nassar.
+
 	- Remarcar la sintaxis natural (v.s Numpy por ejemplo)
 	- Tipos de matrices, factorizaciones, vectores, etc...
 	- Broadcasting (e.g `exmp` en Matlab y cómo se hace en Julia)
 
-- Graficación
+- Graphing
 	- Usando Plots.jl
 	- Mencionar la posibilidad de usar múltiples backends (e.g Tikz)
 	- Gráficas básicas
@@ -56,5 +70,6 @@ Python y Julia [(ejemplo)](https://cheatsheets.quantecon.org/).
 
 ## Siguientes sesiones: Domain specific Julia
 - Ecuaciones Diferenciales
+- Optimización
 - Estadística
 - Economía
