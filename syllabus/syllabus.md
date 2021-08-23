@@ -55,7 +55,6 @@ impartido por Jorge Rotter
 Buen punto de partida: Curso de [Julia 
 Academy](https://github.com/JuliaAcademy/DataScience/blob/main/02.%20Linear%20Algebra.ipynb) 
 impartido Dr. Huda Nassar.
-
 	- Remarcar la sintaxis natural (v.s Numpy por ejemplo)
 	- Tipos de matrices, factorizaciones, vectores, etc...
 	- Broadcasting (e.g `exmp` en Matlab y cómo se hace en Julia)
@@ -73,3 +72,4 @@ impartido Dr. Huda Nassar.
 - Optimización
 - Estadística
 - Economía
+- SciML?
