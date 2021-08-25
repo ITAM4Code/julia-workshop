@@ -251,3 +251,51 @@ ejemplo, la adjunta en Julia es "perezosa". Calcular el producto
 `A*A'` se puede hacer ahorrando calcular la transpuesta gracias a que 
 Julia está consciente de las optimizaciones posibles. Y así como 
 `adjoint` hay `diagonal`, `triangular`, entre muchas muchas otras.
+
+Esta información es extremadamente útil para una de las operaciones 
+fundamentales del álgebra lineal computacional: el resolver el sistema 
+$A\vec{x} = \vec{b}$.
+
+```julia
+A = rand(5, 5)
+b = rand(5)
+x = A\b
+@show norm(A*x-b)
+```
+
+El operador `\` igual que en Matlab resuelve el sistema, y cuando no 
+tiene solución da la solución al problema de mínimos cuadrados. Es 
+importante recordar que `\` *siempre* es la manera preferida de 
+resolver un sistema lineal, casi nunca queremos usar `inv(A)` no solo 
+por la propagación del error numérico sino también porque Julia 
+utiliza la información que tiene sobre la matriz para usar el 
+algoritmo más eficiente para resolver el sistema. Por ejemplo, para 
+una matriz cuadrada general utiliza la factorización LU, para una 
+rectangular la factorización QR, si es triangular se puede obtener 
+directo, y así sucesivamente.
+
+## Intermisión
+
+Este es un gran momento para conocer otra de las grandes ventajas de 
+Julia y su entorno (llamado REPL). La línea de comandos de Julia tiene 
+distintos modos. Hasta ahora se ha visto más o menos así:
+
+```julia
+julia>  A = rand(5, 5)
+```
+
+Si escribimos `?` en una línea vacía entraremos a un modo distinto, el 
+modo de ayuda. Hay que usarlo para que nos diga más sobre cómo 
+resuelve sistemas lineales:
+
+```julia
+help> \
+```
+
+Si tienes duda de algún método, función u operación puedes usar este 
+modo ayuda para buscar más información sin tener que dejar la linea de 
+comandos. Y ese no es el único truco que tiene bajo la manga. Escribir 
+`]` en una línea vacía te lleva al modo manejador de paquetes, 
+escribir `;` te lleva al modo _system shell_ que te permite 
+interactuar con la línea de comandos de tu computadora sin tener que 
+cerrar Julia.
