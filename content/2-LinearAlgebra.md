@@ -18,10 +18,14 @@ complejos = [1+0im 0+1im 1+1im]
 Se pueden concatenar elementos "al final" de un vector con la función 
 `append!`. Cabe mencionar que en Julia se tiene la convención de que 
 si una función modifica a su argumento, el nombre debe terminar en 
-`!`.
+`!`. Otros ejemplos de funciones que modifican su argumentos son 
+`push!` y `pop!` que también actúan sobre vectores, y permiten usarlo 
+como pilas!
 
 ```julia
-append!(primos, 11)
+append!(primos, 11) # Añadir 11 "al final" del vector.
+push!(primos, 13) # Mismo efecto que append!
+un_primo = pop!(primos) # Recupera el último número que añadimos.
 ```
 
 Pero a diferencia de Matlab, hay algunas sutilezas. La siguiente celda 
@@ -221,3 +225,29 @@ grandes beneficios de usar Julia aunque ahora aún no sea obvio. Por el
 momento, pensemos que nos ahorra escribir muchos _for loops_.
 
 # Álgebra Lineal por fin
+
+Empecemos por crear una matriz de 6•6 con entradas aleatorias
+
+```julia
+A = rand(6, 6) # Se le puede especificar el rango de las entradas a rand como primer argumento
+```
+
+Similar a Matlab, se puede transponer una matriz como `A'`. Pero 
+cuidado, esto en realidad quiere decir `A` adjunta. Demos un vistazo.
+
+```julia
+A'
+```
+
+Julia ahora nos informa que mágicamente `A` pasó de ser tipo `Matrix` 
+a ser de tipo `adjoint(Matrix{Float64}`. Qué pasó??
+
+Muchas transformaciones en Julia "cambian" el tipo de la matriz 
+transformada. Eso no quiere decir que haya dejado de ser una matriz, 
+sino que Julia tiene información adicional para hacer optimizaciones, 
+cambiar el algoritmo que resuelve ciertas operaciones, o incluso 
+factorizar de cierta forma la matriz para ahorrar cómputo. Por 
+ejemplo, la adjunta en Julia es "perezosa". Calcular el producto 
+`A*A'` se puede hacer ahorrando calcular la transpuesta gracias a que 
+Julia está consciente de las optimizaciones posibles. Y así como 
+`adjoint` hay `diagonal`, `triangular`, entre muchas muchas otras.
